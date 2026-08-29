@@ -2,13 +2,24 @@
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A+ Study Deck</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<header><div><div class="badges"><span class="badge">CompTIA A+</span><span class="alphaBadge">ALPHA v0.3</span></div><h1>A+ Study Deck</h1><p>Learn it. Recall it. Keep it.</p></div><div class="stat"><b id="mastered">0</b><span>mastered</span></div></header>
-<nav><button class="tab active" data-view="learn">Learn</button><button class="tab" data-view="cards">Flashcards</button><button class="tab" data-view="quiz">Quiz</button><button class="tab" data-view="recall">Recall</button><button class="tab" data-view="progress">Progress</button><button id="feedbackBtn" class="feedbackNav">Alpha Feedback</button></nav>
+<header><div><div class="badges"><span class="badge">CompTIA A+</span><span class="alphaBadge">ALPHA v0.4</span></div><h1>A+ Study Deck</h1><p>Learn it. Recall it. Keep it.</p></div><div class="stat"><b id="mastered">0</b><span>mastered</span></div></header>
+<nav><button class="tab active" data-view="learn">Learn</button><button class="tab" data-view="cards">Flashcards</button><button class="tab" data-view="quiz">Quiz</button><button class="tab" data-view="recall">Recall</button><button class="tab" data-view="lab">Hardware Lab</button><button class="tab" data-view="progress">Progress</button><button id="feedbackBtn" class="feedbackNav">Alpha Feedback</button></nav>
 <main>
 <section id="learn" class="view active"><div class="toolbar"><input id="search" placeholder="Search modules, key terms, or acronyms..."><select id="coreFilter"><option>All</option><option>Core 1</option><option>Core 2</option></select></div><div id="moduleGrid" class="grid"></div></section>
 <section id="cards" class="view"><div class="studyTop"><select id="cardModule"></select><span id="cardCount"></span></div><div id="flashcard" class="flashcard"><div class="face front"><small>QUESTION</small><h2 id="cardQ"></h2><p>Click to reveal</p></div><div class="face back"><small>ANSWER</small><h2 id="cardA"></h2><p>Click to flip back</p></div></div><div class="actions"><button id="again">Again</button><button id="know" class="primary">I know this</button></div></section>
 <section id="quiz" class="view"><div class="quizbox"><div class="studyTop"><select id="quizModule"></select><span id="score">Score: 0 / 0</span></div><h2 id="quizQ"></h2><div id="choices" class="choices"></div><div id="feedback"></div><button id="nextQ" class="primary">Next question</button></div></section>
 <section id="recall" class="view"><div class="recallbox"><div class="studyTop"><select id="recallModule"></select><span id="dueCount"></span></div><div class="recallMeta"><span class="core">ACTIVE RECALL</span><span id="recallTag"></span></div><h2 id="recallQ"></h2><textarea id="recallAnswer" rows="5" placeholder="Answer from memory before revealing the key ideas..."></textarea><button id="revealRecall" class="primary">Reveal key answer</button><div id="recallKey" class="recallKey hidden"><small>KEY ANSWER</small><p id="recallA"></p><p class="ratePrompt">How well did you remember it?</p><div class="rating"><button data-rate="again">Again</button><button data-rate="hard">Hard</button><button data-rate="good" class="primary">Good</button><button data-rate="easy">Easy</button></div></div></div></section>
+
+<section id="lab" class="view">
+  <div class="labHead"><div><span class="core">UNLABELED MOTHERBOARD LAB</span><h2>Identify. Install. Understand.</h2><p>Choose a component or cable, then place it on the correct unlabeled connection. Details and specifications appear only after a correct installation.</p></div><div class="labScore"><b id="labInstalled">0/12</b><span>installed</span></div></div>
+  <div class="labFilters"><button class="labFilter active" data-kind="all">All</button><button class="labFilter" data-kind="component">Components</button><button class="labFilter" data-kind="cable">Cables</button><button id="resetLab">Reset lab</button></div>
+  <div class="labLayout"><aside class="partsTray"><h3>Parts & cables</h3><div id="labParts"></div><div id="labHint" class="labHint">Select an item to begin.</div></aside>
+    <div class="boardWrap"><div id="trainingBoard" class="trainingBoard"><div class="rearIO"><i></i><i></i><i></i><i></i></div><div class="chipsetSink"></div></div></div>
+  </div>
+  <div id="labMessage" class="labMessage">Choose a part, then identify its unlabeled location.</div>
+  <div id="labLesson" class="labLesson locked"><h3>Learning card locked</h3><p>Correctly place an item to reveal its definition, connection details, and specifications.</p></div>
+  <div class="labStats"><span>Attempts <b id="labAttempts">0</b></span><span>Mistakes <b id="labMistakes">0</b></span><span>Accuracy <b id="labAccuracy">100%</b></span></div>
+</section>
 <section id="progress" class="view"><div class="panel"><h2>Your progress</h2><p>Progress and recall scheduling are saved in this browser on this computer.</p><div id="progressRows"></div><button id="reset">Reset progress</button></div></section>
 </main>
 <footer><span>Original study companion organized around the 21 modules in your A+ textbook. Concepts are summarized rather than reproduced.</span><span id="testerLabel"></span></footer>
