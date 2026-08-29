@@ -1,30 +1,16 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A+ Study Deck</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A+ Study Deck</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<header><div><div class="badges"><span class="badge">CompTIA A+</span><span class="alphaBadge">ALPHA v0.2</span></div><h1>A+ Study Deck</h1><p>Simple study, flashcards, quizzes, and progress.</p></div>
-<div class="stat"><b id="mastered">0</b><span>mastered</span></div></header>
-<nav><button class="tab active" data-view="learn">Learn</button><button class="tab" data-view="cards">Flashcards</button><button class="tab" data-view="quiz">Quiz</button><button class="tab" data-view="progress">Progress</button><button id="feedbackBtn" class="feedbackNav">Alpha Feedback</button></nav>
+<header><div><div class="badges"><span class="badge">CompTIA A+</span><span class="alphaBadge">ALPHA v0.3</span></div><h1>A+ Study Deck</h1><p>Learn it. Recall it. Keep it.</p></div><div class="stat"><b id="mastered">0</b><span>mastered</span></div></header>
+<nav><button class="tab active" data-view="learn">Learn</button><button class="tab" data-view="cards">Flashcards</button><button class="tab" data-view="quiz">Quiz</button><button class="tab" data-view="recall">Recall</button><button class="tab" data-view="progress">Progress</button><button id="feedbackBtn" class="feedbackNav">Alpha Feedback</button></nav>
 <main>
-<section id="learn" class="view active"><div class="toolbar"><input id="search" placeholder="Search modules or topics..."><select id="coreFilter"><option>All</option><option>Core 1</option><option>Core 2</option></select></div><div id="moduleGrid" class="grid"></div></section>
+<section id="learn" class="view active"><div class="toolbar"><input id="search" placeholder="Search modules, key terms, or acronyms..."><select id="coreFilter"><option>All</option><option>Core 1</option><option>Core 2</option></select></div><div id="moduleGrid" class="grid"></div></section>
 <section id="cards" class="view"><div class="studyTop"><select id="cardModule"></select><span id="cardCount"></span></div><div id="flashcard" class="flashcard"><div class="face front"><small>QUESTION</small><h2 id="cardQ"></h2><p>Click to reveal</p></div><div class="face back"><small>ANSWER</small><h2 id="cardA"></h2><p>Click to flip back</p></div></div><div class="actions"><button id="again">Again</button><button id="know" class="primary">I know this</button></div></section>
 <section id="quiz" class="view"><div class="quizbox"><div class="studyTop"><select id="quizModule"></select><span id="score">Score: 0 / 0</span></div><h2 id="quizQ"></h2><div id="choices" class="choices"></div><div id="feedback"></div><button id="nextQ" class="primary">Next question</button></div></section>
-<section id="progress" class="view"><div class="panel"><h2>Your progress</h2><p>Progress is saved in this browser on this computer.</p><div id="progressRows"></div><button id="reset">Reset progress</button></div></section>
+<section id="recall" class="view"><div class="recallbox"><div class="studyTop"><select id="recallModule"></select><span id="dueCount"></span></div><div class="recallMeta"><span class="core">ACTIVE RECALL</span><span id="recallTag"></span></div><h2 id="recallQ"></h2><textarea id="recallAnswer" rows="5" placeholder="Answer from memory before revealing the key ideas..."></textarea><button id="revealRecall" class="primary">Reveal key answer</button><div id="recallKey" class="recallKey hidden"><small>KEY ANSWER</small><p id="recallA"></p><p class="ratePrompt">How well did you remember it?</p><div class="rating"><button data-rate="again">Again</button><button data-rate="hard">Hard</button><button data-rate="good" class="primary">Good</button><button data-rate="easy">Easy</button></div></div></div></section>
+<section id="progress" class="view"><div class="panel"><h2>Your progress</h2><p>Progress and recall scheduling are saved in this browser on this computer.</p><div id="progressRows"></div><button id="reset">Reset progress</button></div></section>
 </main>
-<footer><span>Built as an original study companion organized around the 21 modules in your A+ textbook. It summarizes concepts rather than reproducing the book.</span><span id="testerLabel"></span></footer>
-<div id="feedbackModal" class="modal hidden">
-  <div class="modalCard">
-    <div class="modalHead"><h2>Alpha Feedback</h2><button id="closeFeedback" class="iconBtn">×</button></div>
-    <p>Tell us what felt confusing, broken, too easy, too hard, or missing. Feedback is saved locally until you export it.</p>
-    <label>Category<select id="feedbackCategory"><option>Bug</option><option>Content issue</option><option>Confusing wording</option><option>Feature request</option><option>Visual/UI</option><option>Other</option></select></label>
-    <label>Feedback<textarea id="feedbackText" rows="6" placeholder="What happened? What would you change?"></textarea></label>
-    <div class="modalActions"><button id="saveFeedback" class="primary">Save feedback</button><button id="exportFeedback">Export feedback file</button></div>
-    <small id="feedbackStatus"></small>
-  </div>
-</div>
-<script src="data.js"></script><script src="app.js"></script>
-</body></html>
+<footer><span>Original study companion organized around the 21 modules in your A+ textbook. Concepts are summarized rather than reproduced.</span><span id="testerLabel"></span></footer>
+<div id="feedbackModal" class="modal hidden"><div class="modalCard"><div class="modalHead"><h2>Alpha Feedback</h2><button id="closeFeedback" class="iconBtn">×</button></div><p>Tell us what felt confusing, broken, too easy, too hard, or missing. Feedback is saved locally until you export it.</p><label>Category<select id="feedbackCategory"><option>Bug</option><option>Content issue</option><option>Confusing wording</option><option>Feature request</option><option>Visual/UI</option><option>Other</option></select></label><label>Feedback<textarea id="feedbackText" rows="6" placeholder="What happened? What would you change?"></textarea></label><div class="modalActions"><button id="saveFeedback" class="primary">Save feedback</button><button id="exportFeedback">Export feedback file</button></div><small id="feedbackStatus"></small></div></div>
+<script src="data.js"></script><script src="app.js"></script></body></html>
